@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: meetup
+  labels:
+    app: nginx-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-front
+  template:
+    metadata:
+      labels:
+        app: nginx-front
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80        
+        resources:
+          limits:
+            cpu: 10m
+            memory: 50Mi
+          requests:
+            cpu: 1m
+            memory: 5Mi

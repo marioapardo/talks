@@ -14,4 +14,4 @@ link](https://github.com/kubernetes/minikube#installation).
 
 ## 3 Installing Kind.
 
-Kind is a tool to run Kubernetes in Docker locally. [this link](https://github.com/kubernetes-sigs/kind).
+Kind is a tool to run Kubernetes in Docker locally. [this link](https://github.com/kubernetes-sigs/kind#installation-and-usage).
