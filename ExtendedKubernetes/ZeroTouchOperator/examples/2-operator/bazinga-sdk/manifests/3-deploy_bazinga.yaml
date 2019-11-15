@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazinga
+  namespace: meetup
+  labels:
+    app: bazinga
+    release: v1.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bazinga
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: bazinga
+        release: v1.0
+    spec:
+      serviceAccountName: spadmin
+      containers:
+      - name: bazinga
+        image: exfi/bazinga:sdk
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 10m
+            memory: 10Mi
+      restartPolicy: Always
